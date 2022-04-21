@@ -22,9 +22,9 @@ namespace Proyecto.Servicios
             return await usuarioRepositorio.Enviar(doctores);
         }
 
-        public Task<IEnumerable<Pages.Doctor.RegistroDoctores>> GetLista()
+        public async Task<IEnumerable<Doctores>> GetLista()
         {
-            throw new NotImplementedException();
+            return await usuarioRepositorio.GetLista();
         }
     }
 }

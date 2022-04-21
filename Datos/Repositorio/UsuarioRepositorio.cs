@@ -23,7 +23,7 @@ public class UsuarioRepositorio : IUsuarioRepositorio
     {
         return new MySqlConnection(CadenaConexion);
     }
-    public async Task<bool> Enviar(Doctores doctores)
+    public async Task<bool>Enviar(Doctores doctores)
     {
         int Enviar;
         try
@@ -32,7 +32,7 @@ public class UsuarioRepositorio : IUsuarioRepositorio
             await conexion.OpenAsync();
             string sql = "UPDATE Doctores SET IdDoctor=@IdDoctor, Nombre = @Nombre, Identidad = @Identidad, FechaNacimiento = @FechaNacimiento, Sexo = @Sexo, NumeroTelefono = @NumeroTelefono, Direccion = @Direccion" +
                 "Especialidad = @Especialidad, Turno = @Turno WHERE IdDoctor=@IdDoctor;";
-            Enviar = await conexion.ExecuteAsync(sql, new { doctores.IdDoctor, doctores.Nombre, doctores.Identidad, doctores.FechaNacimiento, doctores.Sexo, doctores.NumeroTelefono, doctores.Direccion, doctores.Especialidad, doctores.Turno });
+            Enviar = await conexion.ExecuteAsync(sql, new {doctores.IdDoctor, doctores.Nombre, doctores.Identidad, doctores.FechaNacimiento, doctores.Sexo, doctores.NumeroTelefono, doctores.Direccion, doctores.Especialidad, doctores.Turno });
             return Enviar > 0;
         }
         catch (Exception ex)
@@ -41,8 +41,8 @@ public class UsuarioRepositorio : IUsuarioRepositorio
         }
     }
 
-     public async Task<IEnumerable<Doctores>> GetLista()
-        {
+    public async Task<IEnumerable<Doctores>> GetLista()
+    {
             IEnumerable<Doctores> lista = new List<Doctores>();
 
             try
