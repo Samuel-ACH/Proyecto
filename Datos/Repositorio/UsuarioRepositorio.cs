@@ -25,15 +25,15 @@ public class UsuarioRepositorio : IUsuarioRepositorio
     }
     public async Task<bool> Enviar(Doctores doctores)
     {
-         int resultado;
+        int Enviar;
         try
         {
             using MySqlConnection conexion = Conexion();
             await conexion.OpenAsync();
-            string sql = "UPDATE Doctores SET Nombre = @Nombre, Identidad = @Identidad, FechaNacimiento = @FechaNacimiento, Sexo = @Sexo, NumeroTelefono = @NumeroTelefono, Direccion = @Direccion" +
-                "Especialidad = @Especialidad, Turno = @Turno WHERE Nombre = @Nombre ;";
-            resultado = await conexion.ExecuteAsync(sql, new {});
-            return resultado > 0;
+            string sql = "UPDATE Doctores SET IdDoctor=@IdDoctor, Nombre = @Nombre, Identidad = @Identidad, FechaNacimiento = @FechaNacimiento, Sexo = @Sexo, NumeroTelefono = @NumeroTelefono, Direccion = @Direccion" +
+                "Especialidad = @Especialidad, Turno = @Turno WHERE IdDoctor=@IdDoctor;";
+            Enviar = await conexion.ExecuteAsync(sql, new { doctores.IdDoctor, doctores.Nombre, doctores.Identidad, doctores.FechaNacimiento, doctores.Sexo, doctores.NumeroTelefono, doctores.Direccion, doctores.Especialidad, doctores.Turno });
+            return Enviar > 0;
         }
         catch (Exception ex)
         {
@@ -41,36 +41,22 @@ public class UsuarioRepositorio : IUsuarioRepositorio
         }
     }
 
-    public async Task<IEnumerable<Doctores>> GetLista()
-    {
-        IEnumerable<Doctores> lista = new List<Doctores>();
+     public async Task<IEnumerable<Doctores>> GetLista()
+        {
+            IEnumerable<Doctores> lista = new List<Doctores>();
 
-        try
-        {
-            using MySqlConnection conexion = Conexion();
-            await conexion.OpenAsync();
-            string sql = "SELECT * FROM Doctores;";
-            lista = await conexion.QueryAsync<Doctores>(sql);
+            try
+            {
+                using MySqlConnection conexion = Conexion();
+                await conexion.OpenAsync();
+                string sql = "SELECT * FROM Doctores;";
+                lista = await conexion.QueryAsync<Doctores>(sql);
+            }
+            catch (Exception ex)
+            {
+            }
+            return lista;
         }
-        catch (Exception ex)
-        {
-        }
-        return lista;
-    }
 }
-//public async Task<bool> ValidaUsuario(Login login)
-//{
-//    bool valido = false;
-//    try
-//    {
-//        using MySqlConnection conexion = Conexion();
-//        await conexion.OpenAsync();
-//        string sql = "SELECT 1 FROM usuario WHERE Codigo = @Codigo AND Clave = @Clave;";
-//        valido = await conexion.ExecuteScalarAsync<bool>(sql, new { login.Codigo, login.Clave });
-//    }
-//    catch (Exception ex)
-//    {
-//    }
-//    return valido;
-//}
+
 

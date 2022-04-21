@@ -26,10 +26,5 @@ namespace Proyecto.Servicios
         {
             throw new NotImplementedException();
         }
-
-        Task<IEnumerable<Pages.Doctor.RegistroDoctores>> IUsuarioServicio.GetLista()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

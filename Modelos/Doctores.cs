@@ -9,7 +9,6 @@ namespace Modelos;
 
 public class Doctores
 {
-    public static object nombre;
 
     public int IdDoctor { get; set; }
     public string Nombre { get; set; }
