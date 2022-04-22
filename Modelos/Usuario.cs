@@ -4,10 +4,12 @@ namespace Modelos
 {
     public class Usuario
     {
-        [Required(ErrorMessage = "El Campo Codigo es Obligatorio")]
-        public string Clave { get; set; }
+        [Required(ErrorMessage = "El Campo IdUsuario es Obligatorio")]
+        public string IdUsuario { get; set; }
         [Required(ErrorMessage = "El Campo Nombre es Obligatorio")]
-        public string Nombre { get; set; }
-       
+        public string NombreUsuario { get; set; }
+        [Required(ErrorMessage = "El Campo Contraseña es Obligatorio")]
+        public string Contraseña { get; set; }
+
     }
 }

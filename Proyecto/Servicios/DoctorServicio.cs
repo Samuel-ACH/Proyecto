@@ -6,15 +6,15 @@ using Proyecto.Interfaces;
 
 namespace Proyecto.Servicios
 {
-    public class UsuarioServicio : IUsuarioServicio
+    public class DoctorServicio : IUsuarioServicio
     {
         private readonly MySQLConfiguration _configuration;
-        private IUsuarioRepositorio usuarioRepositorio;
+        private IDoctorRepositorio usuarioRepositorio;
 
-        public UsuarioServicio(MySQLConfiguration configuration)
+        public DoctorServicio(MySQLConfiguration configuration)
         {
             _configuration = configuration;
-            usuarioRepositorio = new UsuarioRepositorio(configuration.CadenaConexion);
+            usuarioRepositorio = new DoctorRepositorio(configuration.CadenaConexion);
         }
 
         public async Task<bool> Enviar(Doctores doctores)
