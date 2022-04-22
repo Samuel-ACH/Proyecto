@@ -18,13 +18,13 @@ partial class RegistroDoctores
 
     private Doctores doc = new Doctores();
 
-    protected async Task Enviar()
+    protected async Task Guardar()
     {
-        if (string.IsNullOrEmpty(Convert.ToString(doc.IdDoctor)) || string.IsNullOrEmpty(doc.Nombre) || string.IsNullOrEmpty(doc.Identidad) || string.IsNullOrEmpty(Convert.ToString(doc.FechaNacimiento)) ||
+        if (string.IsNullOrEmpty(doc.IdDoctor) || string.IsNullOrEmpty(doc.Nombre) || string.IsNullOrEmpty(doc.Identidad) || string.IsNullOrEmpty(doc.FechaNacimiento) ||
             string.IsNullOrEmpty(doc.Sexo) || string.IsNullOrEmpty(doc.NumeroTelefono) || string.IsNullOrEmpty(doc.Direccion) || string.IsNullOrEmpty(doc.Especialidad) || string.IsNullOrEmpty(doc.Turno))
         {
             return;
-
+        }
             bool inserto = await doctorServicio.Enviar(doc);
             if (inserto)
             {
@@ -36,7 +36,6 @@ partial class RegistroDoctores
             }
             navigationManager.NavigateTo("/Doctores");
 
-        }
-
     }
 }
+
