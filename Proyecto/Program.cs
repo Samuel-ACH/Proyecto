@@ -13,6 +13,7 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddScoped<IDoctorServicio, DoctorServicio>();
+builder.Services.AddScoped<IExpedientesServicio, ExpedientesServicio>();
 builder.Services.AddSweetAlert2();
 
 MySQLConfiguration cadenaConexion = new MySQLConfiguration(builder.Configuration.GetConnectionString("MySQL"));
