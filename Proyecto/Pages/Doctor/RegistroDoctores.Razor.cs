@@ -20,7 +20,7 @@ partial class RegistroDoctores
 
     protected async Task Guardar()
     {
-        if (string.IsNullOrEmpty(doc.IdDoctor) || string.IsNullOrEmpty(doc.Nombre) || string.IsNullOrEmpty(doc.Identidad) || string.IsNullOrEmpty(doc.FechaNacimiento) ||
+        if (string.IsNullOrEmpty(doc.Nombre) || string.IsNullOrEmpty(doc.Identidad) || string.IsNullOrEmpty(doc.FechaNacimiento) ||
             string.IsNullOrEmpty(doc.Sexo) || string.IsNullOrEmpty(doc.NumeroTelefono) || string.IsNullOrEmpty(doc.Direccion) || string.IsNullOrEmpty(doc.Especialidad) || string.IsNullOrEmpty(doc.Turno))
         {
             return;

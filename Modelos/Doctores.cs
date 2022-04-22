@@ -10,7 +10,7 @@ namespace Modelos;
 public class Doctores
 {
 
-    public string IdDoctor { get; set; }
+    public int IdDoctor { get; set; }
     public string Nombre { get; set; }
     public string Identidad  { get; set; }
     public string FechaNacimiento { get; set; }
