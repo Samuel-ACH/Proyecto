@@ -6,7 +6,7 @@ namespace Proyecto.Pages.Doctor;
 
 partial class ListadoDoctores
 {
-    [Inject] private IUsuarioServicio _usuarioServicio { get; set; }
+    [Inject] private IDoctorServicio _usuarioServicio { get; set; }
 
     private IEnumerable<Doctores> doctoresLista { get; set; }
 

@@ -8,7 +8,7 @@ namespace Proyecto.Pages.Doctor;
 
 partial class RegistroDoctores
 {
-    [Inject] private IUsuarioServicio usuarioServicio { get; set; }
+    [Inject] private IDoctorServicio usuarioServicio { get; set; }
 
     [Inject] private NavigationManager navigationManager { get; set; }
 
