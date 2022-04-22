@@ -1,51 +1,36 @@
 ﻿@page "/Usuario"
 <h3>Usuario</h3>
 
-@*<div class"form-group row">
-    <div class="col-sm-2">
-        <a href="/Usuarios/Nuevo" class="btn btn-primary">Nuevo Usuario</a>
-    </div>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Login</title>
+	<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+	
+
+<div class="Login-form">
+	<h1>Iniciar sesión </h1>
+	<form action="#"method="post">
+		<p>Nombre de Usuario </p>
+		<input type="text"  name="Nombre de Usuario"  required=""  />
+
+ 	<p>Contraseña</p>
+ 	<input type="password"  name="Contraseña"  required=""  />
+
+	<INPUT type=submit value="Ingresar" >
+
+	</form>		
+	
 </div>
 
-@if (usuariosLista == null)
-{
-    <div class="spinner"></div>
-}
-else
-{
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Código</th>
-                <th>Nombre</th>
-                <th>Rol</th>
-                <th>Esta Activo</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var user in usuariosLista)
-            {
-                <tr>
-                    <td>@user.Codigo</td>
-                    <td>@user.Nombre</td>
-                    <td>@user.Rol</td>
-                    <td>
-                        @if(@user.EstaActivo)
-                        {
-                            <span class="oi oi-circle-check" style="color:green;"></span>
-                        }
-                        else
-                        {
-                            <span class="oi oi-circle-x" style="color:red;"></span>
-                        }
-                    </td>
-                    <td>
-                        <a class="btn btn-success" href="@($"/Usuarios/Editar/{user.Codigo}")">Editar</a>
-                    </td>
 
-                </tr>
-            }
-        </tbody>
-    </table>
-    }*@
+
+</body>
+</html>
+
+
+	

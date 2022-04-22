@@ -9,22 +9,22 @@ namespace Proyecto.Servicios
     public class DoctorServicio : IDoctorServicio
     {
         private readonly MySQLConfiguration _configuration;
-        private IDoctorRepositorio usuarioRepositorio;
+        private IDoctorRepositorio DoctorRepositorio;
 
         public DoctorServicio(MySQLConfiguration configuration)
         {
             _configuration = configuration;
-            usuarioRepositorio = new DoctorRepositorio(configuration.CadenaConexion);
+            DoctorRepositorio = new DoctorRepositorio(configuration.CadenaConexion);
         }
 
         public async Task<bool> Enviar(Doctores doctores)
         {
-            return await usuarioRepositorio.Enviar(doctores);
+            return await DoctorRepositorio.Enviar(doctores);
         }
 
         public async Task<IEnumerable<Doctores>> GetLista()
         {
-            return await usuarioRepositorio.GetLista();
+            return await DoctorRepositorio.GetLista();
         }
     }
 }
