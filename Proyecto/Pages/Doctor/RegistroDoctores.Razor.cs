@@ -12,16 +12,13 @@ partial class RegistroDoctores
 
     [Inject] private NavigationManager navigationManager { get; set; }
 
-    private IEnumerable<RegistroDoctores> Doctoreslista { get; set; }
-
     [Inject] SweetAlertService Swal { get; set; }
 
     private Doctores doc = new Doctores();
 
     protected async Task Guardar()
     {
-        if (string.IsNullOrEmpty(doc.Nombre) || string.IsNullOrEmpty(doc.Identidad) || string.IsNullOrEmpty(doc.FechaNacimiento) ||
-            string.IsNullOrEmpty(doc.Sexo) || string.IsNullOrEmpty(doc.NumeroTelefono) || string.IsNullOrEmpty(doc.Direccion) || string.IsNullOrEmpty(doc.Especialidad) || string.IsNullOrEmpty(doc.Turno))
+        if (string.IsNullOrEmpty(doc.Nombre) || string.IsNullOrEmpty(doc.Identidad) || string.IsNullOrEmpty(doc.FechaNacimiento) || string.IsNullOrEmpty(doc.Sexo) || string.IsNullOrEmpty(doc.NumeroTelefono) || string.IsNullOrEmpty(doc.Direccion) || string.IsNullOrEmpty(doc.Especialidad) || string.IsNullOrEmpty(doc.Turno))
         {
             return;
         }
@@ -34,7 +31,7 @@ partial class RegistroDoctores
             {
                 await Swal.FireAsync("Error", "Usuario del doctor no se pudo crear", SweetAlertIcon.Error);
             }
-            navigationManager.NavigateTo("/Doctores");
+            navigationManager.NavigateTo("/ListadoDoctores");
 
     }
 }

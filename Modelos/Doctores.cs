@@ -12,6 +12,7 @@ public class Doctores
 
     public int IdDoctor { get; set; }
     public string Nombre { get; set; }
+    [Required(ErrorMessage = "El Campo Codigo es Obligatorio")]
     public string Identidad  { get; set; }
     public string FechaNacimiento { get; set; }
     public string Sexo { get; set; }
