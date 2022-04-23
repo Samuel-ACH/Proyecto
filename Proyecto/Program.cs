@@ -12,6 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
+builder.Services.AddScoped<IUsuarioServicio, UsuarioServicio>();
 builder.Services.AddScoped<IDoctorServicio, DoctorServicio>();
 builder.Services.AddScoped<IExpedientesServicio, ExpedientesServicio>();
 builder.Services.AddSweetAlert2();
