@@ -14,12 +14,14 @@ builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddScoped<IUsuarioServicio, UsuarioServicio>();
 builder.Services.AddScoped<IDoctorServicio, DoctorServicio>();
+builder.Services.AddSweetAlert2();
 builder.Services.AddScoped<IExpedientesServicio, ExpedientesServicio>();
 builder.Services.AddScoped<IPacienteServicio, PacienteServicio>();
-builder.Services.AddSweetAlert2();
+
 
 MySQLConfiguration cadenaConexion = new MySQLConfiguration(builder.Configuration.GetConnectionString("MySQL"));
 builder.Services.AddSingleton(cadenaConexion);
+builder.Services.AddSweetAlert2();
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
 builder.Services.AddHttpContextAccessor();

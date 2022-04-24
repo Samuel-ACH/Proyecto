@@ -30,9 +30,9 @@ public class DoctorRepositorio : IDoctorRepositorio
         {
             using MySqlConnection conexion = Conexion();
             await conexion.OpenAsync();
-            string sql = "UPDATE Doctores SET IdDoctor=@IdDoctor, Nombre = @Nombre, Identidad = @Identidad, FechaNacimiento = @FechaNacimiento, Sexo = @Sexo, NumeroTelefono = @NumeroTelefono, Direccion = @Direccion" +
-                "Especialidad = @Especialidad, Turno = @Turno WHERE IdDoctor=@IdDoctor;";
-            Enviar = await conexion.ExecuteAsync(sql, new {doctores.IdDoctor, doctores.Nombre, doctores.Identidad, doctores.FechaNacimiento, doctores.Sexo, doctores.NumeroTelefono, doctores.Direccion, doctores.Especialidad, doctores.Turno });
+            string sql = "UPDATE doctores SET Nombre = @Nombre, Identidad = @Identidad, FechaNacimiento = @FechaNacimiento, Sexo = @Sexo, NumeroTelefono = @NumeroTelefono, Direccion = @Direccion" +
+                "Especialidad = @Especialidad, Turno = @Turno WHERE Nombre=@Nombre;";
+            Enviar = await conexion.ExecuteAsync(sql, new {doctores.Nombre, doctores.Identidad, doctores.FechaNacimiento, doctores.Sexo, doctores.NumeroTelefono, doctores.Direccion, doctores.Especialidad, doctores.Turno });
             return Enviar > 0;
         }
         catch (Exception ex)
@@ -49,7 +49,7 @@ public class DoctorRepositorio : IDoctorRepositorio
             {
                 using MySqlConnection conexion = Conexion();
                 await conexion.OpenAsync();
-                string sql = "SELECT * FROM Doctores;";
+                string sql = "SELECT * FROM doctores;";
                 lista = await conexion.QueryAsync<Doctores>(sql);
             }
             catch (Exception ex)
