@@ -32,12 +32,14 @@ namespace Datos.Repositorio
             {
                 using MySqlConnection conexion = Conexion();
                 await conexion.OpenAsync();
-                string sql = "UPDATE usuario SET IdUsuario = @IdUsuario, NombreUsuario = @NombreUsuario, Contraseña = @Contraseña ;";
+                string sql = "UPDATE usuario SET IdUsuario = @IdUsuario, NombreUsuario = @NombreUsuario, Contraseña = @Contraseña, EstaActivo = @EstaActivo, Rol = @Rol ;";
                 resultado = await conexion.ExecuteAsync(sql, new
                 {
                     usuario.IdUsuario,
                     usuario.NombreUsuario,
                     usuario.Contraseña,
+                    usuario.EstaActivo,
+                    usuario.Rol
 
 
                 });
@@ -84,7 +86,7 @@ namespace Datos.Repositorio
             return lista;
         }
 
-        public async Task<Usuario> GetPorCodigo(string codigo)
+        public async Task<Usuario> GetPorCodigo(string idUsuario)
         {
             Usuario user = new Usuario();
             try
@@ -92,7 +94,7 @@ namespace Datos.Repositorio
                 using MySqlConnection conexion = Conexion();
                 await conexion.OpenAsync();
                 string sql = "SELECT * FROM usuario WHERE IdUsuario = @IdUsuario;";
-                user = await conexion.QueryFirstAsync<Usuario>(sql, new { IdUsuario });
+                user = await conexion.QueryFirstAsync<Usuario>(sql, new { idUsuario });
             }
             catch (Exception)
             {
@@ -107,7 +109,7 @@ namespace Datos.Repositorio
             {
                 using MySqlConnection conexion = Conexion();
                 await conexion.OpenAsync();
-                string sql = "INSERT INTO usuario (IdUsuario, NombreUsuario, Contraseña, EstaActivo) VALUES (@IdUsuario, @NombreUsuario,@Contraseña, @EstaActivo)";
+                string sql = "INSERT INTO usuario (IdUsuario, NombreUsuario, Contraseña, EstaActivo, Rol) VALUES (@IdUsuario, @NombreUsuario,@Contraseña, @EstaActivo, @Rol)";
                 resultado = await conexion.ExecuteAsync(sql, usuario);
                 return resultado > 0;
             }

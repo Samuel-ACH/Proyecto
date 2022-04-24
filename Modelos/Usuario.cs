@@ -12,4 +12,7 @@ public class Usuario
     public string Contraseña { get; set; }
     public bool EstaActivo { get; set; }
 
+    [Required(ErrorMessage = "El Campo Rol es Obligatorio")]
+    public string Rol { get; set; }
+   
 }

@@ -7,5 +7,5 @@ public interface IUsuarioServicio
     Task<bool> Actualizar(Usuario usuario);
     Task<bool> Eliminar(Usuario usuario);
     Task<IEnumerable<Usuario>> GetLista();
-    Task<Usuario> GetPorCodigo(string codigo);
+    Task<Usuario> GetPorCodigo(string IdUsuario);
 }

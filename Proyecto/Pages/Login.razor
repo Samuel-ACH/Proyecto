@@ -1,5 +1,4 @@
-﻿@page "/login"
-@page "/login/{ErrorMessage}"
+﻿@page "/login/{ErrorMessage}"
 @inject NavigationManager navigationManager
 @attribute [AllowAnonymous]
 
@@ -29,3 +28,4 @@
 @code {
     [Parameter] public string ErrorMessage { get; set; }
 }
+
