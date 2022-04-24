@@ -27,11 +27,11 @@ partial class ExpedientesPacientes
             bool inserto = await expedientesServicio.Guardar(Exp);
             if (inserto)
             {
-                await Swal.FireAsync("Felicidades", "Usuario del doctor creado con exito", SweetAlertIcon.Success);
+                await Swal.FireAsync("Felicidades", "Expediente del Paciente creado con exito", SweetAlertIcon.Success);
             }
             else
             {
-                await Swal.FireAsync("Error", "Usuario del doctor no se pudo crear", SweetAlertIcon.Error);
+                await Swal.FireAsync("Error", "Expediente del Paciente  no se pudo crear", SweetAlertIcon.Error);
             }
             navigationManager.NavigateTo("/Expedientes");
         }
