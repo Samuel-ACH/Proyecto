@@ -107,7 +107,7 @@ namespace Datos.Repositorio
             {
                 using MySqlConnection conexion = Conexion();
                 await conexion.OpenAsync();
-                string sql = "INSERT INTO usuario (IdUsuario, NombreUsuario, Contraseña) VALUES (@IdUsuario, @NombreUsuario,@Contraseña )";
+                string sql = "INSERT INTO usuario (IdUsuario, NombreUsuario, Contraseña, EstaActivo) VALUES (@IdUsuario, @NombreUsuario,@Contraseña, @EstaActivo)";
                 resultado = await conexion.ExecuteAsync(sql, usuario);
                 return resultado > 0;
             }

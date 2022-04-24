@@ -10,5 +10,6 @@ public class Usuario
     public string NombreUsuario { get; set; }
     [Required(ErrorMessage = "El Campo Contraseña es Obligatorio")]
     public string Contraseña { get; set; }
+    public bool EstaActivo { get; set; }
 
 }
