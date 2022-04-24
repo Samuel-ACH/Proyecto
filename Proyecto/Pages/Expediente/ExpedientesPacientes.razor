@@ -8,7 +8,7 @@
 <EditForm Model="@Exp">
 <div class="input-group mb-3">
   <span class="input-group-text" id="basic-addon1">IdExpedientePaciente</span>
-  <input type="text" id="IdExpedientePaciente" class="form-control" placeholder="Username" aria-label="IdExpedientePaciente" aria-describedby="basic-addon1">
+  <input type="text" id="IdExpedientePaciente" @bind-value="@Exp.IdExpedientePaciente" class="form-control" placeholder="Username" aria-label="IdExpedientePaciente" aria-describedby="basic-addon1">
 </div>
 
 <div class="input-group mb-3">
