@@ -5,11 +5,12 @@ using Modelos;
 
 namespace Proyecto.Pages.Usuarios;
 
-partial class NuevoUsuario
+partial class NuevosUsuarios
 {
     [Inject] private IUsuarioServicio usuarioServicio { get; set; }
     [Inject] private NavigationManager navigationManager { get; set; }
     [Inject] SweetAlertService Swal { get; set; }
+   
 
     private Usuario user = new Usuario();
 
