@@ -19,8 +19,7 @@ partial class ExpedientesPacientes
 
     protected async Task Guardar()
     {
-        if (string.IsNullOrEmpty(Convert.ToString(Exp.IdExpedientePaciente)) || string.IsNullOrEmpty(Convert.ToString(Exp.IdRegistroPaciente)) || string.IsNullOrEmpty(Convert.ToString(Exp.IdDoctor)) || string.IsNullOrEmpty(Convert.ToString(Exp.FechaConsulta)) ||
-        string.IsNullOrEmpty(Exp.Diagnostico))
+        if (string.IsNullOrEmpty(Exp.FechaConsulta) || string.IsNullOrEmpty(Exp.Diagnostico))
         {
             return;
 

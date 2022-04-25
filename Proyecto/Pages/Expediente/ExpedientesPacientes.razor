@@ -6,28 +6,16 @@
 <h3>Expediente Pacientes</h3>
 
 <EditForm Model="@Exp">
-<div class="input-group mb-3">
-  <span class="input-group-text" id="basic-addon1">IdExpedientePaciente</span>
-  <input type="text" id="IdExpedientePaciente" @bind-value="@Exp.IdExpedientePaciente" class="form-control" placeholder="Username" aria-label="IdExpedientePaciente" aria-describedby="basic-addon1">
-</div>
-
-<div class="input-group mb-3">
-  <span class="input-group-text" id="basic-addon1">IdRegistroPaciente</span>
-  <input type="text" id="IdRegistroPaciente" class="form-control" placeholder="SubUsername" aria-label="IdRegistroPaciente" aria-describedby="basic-addon1">
-</div>
-
-<div class="input-group mb-3">
-  <span class="input-group-text" id="basic-addon1">IdDoctor</span>
-  <input type="text" id="IdDoctor" class="form-control" placeholder="IdDoctor" aria-label="IdDoctor" aria-describedby="basic-addon1">
-</div>
 
 <div class="input-group mb-3">
   <span class="input-group-text" id="basic-addon1">FechaConsulta</span>
-  <input type="text" id="FechaConsulta" class="form-control" placeholder="Fecha" aria-label="FechaConsulta" aria-describedby="basic-addon1">
+  <input type="text" id="FechaConsulta" @bind-value="Exp.FechaConsulta" class="form-control" placeholder="Fecha" aria-label="FechaConsulta" aria-describedby="basic-addon1">
+  <ValidationMessage For="@(() => Exp.FechaConsulta)" />
 </div>
 <div class="mb-3">
   <label for="exampleFormControlTextarea1" class="form-label">Diagnostico</label>
   <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  <ValidationMessage For="@(() => Exp.Diagnostico)" />
 </div>
 
 <div class="form-group row">

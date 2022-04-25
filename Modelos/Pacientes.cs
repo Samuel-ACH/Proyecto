@@ -14,4 +14,7 @@ public class Pacientes
     public string FechaNacimiento { get; set; }
     public string Sexo { get; set; }
     public string NumeroTelefono { get; set; }
+
+    public string TipodeSangre { get; set; }
+
 }

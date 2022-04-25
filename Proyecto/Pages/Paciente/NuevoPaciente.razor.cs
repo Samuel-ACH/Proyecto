@@ -18,7 +18,7 @@ partial class NuevoPaciente
     protected async Task Enviar()
     {
         if (string.IsNullOrEmpty(pac.Nombre) || string.IsNullOrEmpty(pac.Identidad) || string.IsNullOrEmpty(pac.FechaNacimiento) ||
-            string.IsNullOrEmpty(pac.Sexo) || string.IsNullOrEmpty(pac.NumeroTelefono))
+            string.IsNullOrEmpty(pac.Sexo) || string.IsNullOrEmpty(pac.NumeroTelefono) || string.IsNullOrEmpty(pac.TipodeSangre))
         {
             return;
 

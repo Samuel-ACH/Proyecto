@@ -51,7 +51,7 @@ public class ExpedientesRepositorio : IExpedientesRepositorio
             await conexion.OpenAsync();
             string sql = "UPDATE ExpedientePaciente SET IdExpedientePaciente=@IdExpedientePaciente, IdRegistroPaciente = @IdRegistroPaciente IdDoctor = @IdDoctor" +
                 "FechaConsulta = @FechaConsulta, Diagnostico  = @Diagnostico WHERE IdExpedientePaciente=@IdExpedientePaciete;";
-            Guardar = await conexion.ExecuteAsync(sql, new { expedientes.IdExpedientePaciente, expedientes.IdRegistroPaciente, expedientes.IdDoctor, expedientes.FechaConsulta, expedientes.Diagnostico });
+            Guardar = await conexion.ExecuteAsync(sql, new { expedientes.FechaConsulta, expedientes.Diagnostico });
             return Guardar > 0;
         }
         catch (Exception ex)
