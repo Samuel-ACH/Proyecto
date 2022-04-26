@@ -8,6 +8,12 @@
 
 <EditForm Model="@doc">
 
+    <div class="input-group mb-3">
+  <span class="input-group-text" id="basic-addon1">Id del Doctor</span>
+  <InputText type="text" id="IdDoctor" @bind-Value="doc.IdDoctor" class="form-control" placeholder="Id Doctor" aria-label="IdDoctor" aria-describedby="basic-addon1"/>
+  <ValidationMessage For="@(() => doc.IdDoctor)" />
+</div>
+
 <div class="input-group mb-3">
   <span class="input-group-text" id="basic-addon1">Nombre</span>
   <InputText type="text" id="Nombre" @bind-Value="doc.Nombre" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1"/>

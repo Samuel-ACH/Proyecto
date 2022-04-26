@@ -18,7 +18,7 @@ partial class RegistroDoctores
 
     protected async Task Guardar()
     {
-        if (string.IsNullOrEmpty(doc.Nombre) || string.IsNullOrEmpty(doc.Identidad) || string.IsNullOrEmpty(doc.FechaNacimiento) || string.IsNullOrEmpty(doc.Sexo) || string.IsNullOrEmpty(doc.NumeroTelefono) || string.IsNullOrEmpty(doc.Direccion) || string.IsNullOrEmpty(doc.Especialidad) || string.IsNullOrEmpty(doc.Turno))
+        if (string.IsNullOrEmpty(doc.IdDoctor) || string.IsNullOrEmpty(doc.Nombre) || string.IsNullOrEmpty(doc.Identidad) || string.IsNullOrEmpty(doc.FechaNacimiento) || string.IsNullOrEmpty(doc.Sexo) || string.IsNullOrEmpty(doc.NumeroTelefono) || string.IsNullOrEmpty(doc.Direccion) || string.IsNullOrEmpty(doc.Especialidad) || string.IsNullOrEmpty(doc.Turno))
         {
             return;
         }
@@ -31,7 +31,7 @@ partial class RegistroDoctores
             {
                 await Swal.FireAsync("Error", "Usuario del doctor no se pudo crear", SweetAlertIcon.Error);
             }
-            navigationManager.NavigateTo("/ListadoDoctores");
+            navigationManager.NavigateTo("/RegistroDoctores/ListadoDoctores");
 
     }
 }
