@@ -4,25 +4,28 @@ using Proyecto.Data;
 using Proyecto.Interfaces;
 using Proyecto.Servicios;
 
-
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
-builder.Services.AddScoped<IUsuarioServicio, UsuarioServicio>();
-
-builder.Services.AddScoped<IDoctorServicio, DoctorServicio>();
-builder.Services.AddSweetAlert2();
-builder.Services.AddScoped<IExpedientesServicio, ExpedientesServicio>();
-builder.Services.AddScoped<IPacienteServicio, PacienteServicio>();
-
 
 MySQLConfiguration cadenaConexion = new MySQLConfiguration(builder.Configuration.GetConnectionString("MySQL"));
 builder.Services.AddSingleton(cadenaConexion);
+
+
+builder.Services.AddScoped<IUsuarioServicio, UsuarioServicio>();
 builder.Services.AddSweetAlert2();
+
+builder.Services.AddScoped<IDoctorServicio, DoctorServicio>();
+
+builder.Services.AddScoped<IExpedientesServicio, ExpedientesServicio>();
+
+builder.Services.AddScoped<IPacienteServicio, PacienteServicio>();
+
+
+
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
 builder.Services.AddHttpContextAccessor();

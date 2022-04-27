@@ -2,7 +2,6 @@
 using Proyecto.Interfaces;
 using CurrieTechnologies.Razor.SweetAlert2;
 using Modelos;
-using Datos;
 
 namespace Proyecto.Pages.Expediente;
 

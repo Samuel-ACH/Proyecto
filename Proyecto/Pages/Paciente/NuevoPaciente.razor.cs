@@ -2,12 +2,13 @@
 using Microsoft.AspNetCore.Components;
 using Modelos;
 using Proyecto.Interfaces;
-using Datos;
+
 
 namespace Proyecto.Pages.Paciente;
 
 partial class NuevoPaciente
 {
+    [Inject] private IPacienteServicio pacienteServicio { get; set; }
     [Inject] private NavigationManager navigationManager { get; set; }
 
 
