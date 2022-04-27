@@ -4,15 +4,16 @@ namespace Modelos;
 
 public class Usuario
 {
-    [Required(ErrorMessage = "El Campo IdUsuario es Obligatorio")]
-    public string IdUsuario { get; set; }
+    [Required(ErrorMessage = "El Campo Codigo es Obligatorio")]
+    public string Codigo { get; set; }
     [Required(ErrorMessage = "El Campo Nombre es Obligatorio")]
-    public string NombreUsuario { get; set; }
-    [Required(ErrorMessage = "El Campo Contraseña es Obligatorio")]
-    public string Contraseña { get; set; }
-    public bool EstaActivo { get; set; }
+    public string Nombre { get; set; }
 
     [Required(ErrorMessage = "El Campo Rol es Obligatorio")]
     public string Rol { get; set; }
+
+    [Required(ErrorMessage = "El Campo Clave es Obligatorio")]
+    public string Clave { get; set; }
+    public bool EstaActivo { get; set; } 
    
 }

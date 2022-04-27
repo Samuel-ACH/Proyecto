@@ -6,7 +6,7 @@
 <h3>Expediente Pacientes</h3>
 
 <EditForm Model="@Exp">
-
+    <DataAnnotationsValidator />
 <div class="input-group mb-3">
   <span class="input-group-text" id="basic-addon1">FechaConsulta</span>
   <input type="text" id="FechaConsulta" @bind-value="Exp.FechaConsulta" class="form-control" placeholder="Fecha" aria-label="FechaConsulta" aria-describedby="basic-addon1">

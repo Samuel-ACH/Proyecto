@@ -32,9 +32,9 @@ public class UsuarioServicio : IUsuarioServicio
         return await UsuarioRepositorio.GetLista();
     }
 
-    public async Task<Usuario> GetPorCodigo(string idUsuario)
+    public async Task<Usuario> GetPorCodigo(string codigo)
     {
-        return await UsuarioRepositorio.GetPorCodigo(idUsuario);
+        return await UsuarioRepositorio.GetPorCodigo(codigo);
     }
 
     public async Task<bool> Nuevo(Usuario usuario)

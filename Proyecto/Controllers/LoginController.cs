@@ -29,13 +29,13 @@ public class LoginController : Controller
         try
         {
             bool usuarioValido = await _usuarioRepositorio.ValidaUsuario(login);
-                Usuario usu = await _usuarioRepositorio.GetPorCodigo(login.NombreUsuario);
+                Usuario usu = await _usuarioRepositorio.GetPorCodigo(login.Nombre);
                 if (usu.EstaActivo)
                 {
                     //Añadimos los claims Usuario y Rol para tenerlos disponibles en la Cookie
                     var claims = new[]
                     {
-                                new Claim(ClaimTypes.Name, usu.IdUsuario),
+                                new Claim(ClaimTypes.Name, usu.Codigo),
                                
                             };
 

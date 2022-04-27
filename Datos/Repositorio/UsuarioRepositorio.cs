@@ -14,7 +14,7 @@ namespace Datos.Repositorio
     {
         private string CadenaConexion;
 
-        public object IdUsuario { get; private set; }
+        public object Codigo { get; private set; }
 
         public UsuarioRepositorio(string cadenaConexion)
         {
@@ -32,14 +32,15 @@ namespace Datos.Repositorio
             {
                 using MySqlConnection conexion = Conexion();
                 await conexion.OpenAsync();
-                string sql = "UPDATE usuario SET IdUsuario = @IdUsuario, NombreUsuario = @NombreUsuario, Contraseña = @Contraseña, EstaActivo = @EstaActivo, Rol = @Rol ;";
+                string sql = "UPDATE usuario SET Codigo = @Codigo, Nombre = @Nombre, Rol = @Rol, Clave = @Clave, EstaActivo = @EstaActivo ;";
                 resultado = await conexion.ExecuteAsync(sql, new
                 {
-                    usuario.IdUsuario,
-                    usuario.NombreUsuario,
-                    usuario.Contraseña,
+                    usuario.Codigo,
+                    usuario.Nombre,
+                    usuario.Rol,
+                    usuario.Clave,
                     usuario.EstaActivo,
-                    usuario.Rol
+                   
 
 
                 });
@@ -59,8 +60,8 @@ namespace Datos.Repositorio
             {
                 using MySqlConnection conexion = Conexion();
                 await conexion.OpenAsync();
-                string sql = "DELETE FROM usuario WHERE IdUsuario = @IdUsuario;";
-                resultado = await conexion.ExecuteAsync(sql, new { usuario.IdUsuario });
+                string sql = "DELETE FROM usuario WHERE Codigo = @Codigo;";
+                resultado = await conexion.ExecuteAsync(sql, new { usuario.Codigo });
                 return resultado > 0;
             }
             catch (Exception ex)
@@ -93,8 +94,8 @@ namespace Datos.Repositorio
             {
                 using MySqlConnection conexion = Conexion();
                 await conexion.OpenAsync();
-                string sql = "SELECT * FROM usuario WHERE IdUsuario = @IdUsuario;";
-                user = await conexion.QueryFirstAsync<Usuario>(sql, new { idUsuario });
+                string sql = "SELECT * FROM usuario WHERE Codigo = @Codigo;";
+                user = await conexion.QueryFirstAsync<Usuario>(sql, new { Codigo });
             }
             catch (Exception)
             {
@@ -109,7 +110,7 @@ namespace Datos.Repositorio
             {
                 using MySqlConnection conexion = Conexion();
                 await conexion.OpenAsync();
-                string sql = "INSERT INTO usuario (IdUsuario, NombreUsuario, Contraseña, EstaActivo, Rol) VALUES (@IdUsuario, @NombreUsuario,@Contraseña, @EstaActivo, @Rol)";
+                string sql = "INSERT INTO usuario (Codigo, Nombre, Rol,Clave, EstaActivo) VALUES (@Codigo, @Nombre, @Rol, @Contraseña, @EstaActivo)";
                 resultado = await conexion.ExecuteAsync(sql, usuario);
                 return resultado > 0;
             }
@@ -126,8 +127,8 @@ namespace Datos.Repositorio
             {
                 using MySqlConnection conexion = Conexion();
                 await conexion.OpenAsync();
-                string sql = "SELECT 1 FROM usuario WHERE NombreUsuario = @NombreUsuario AND Contraseña = @Contraseña;";
-                valido = await conexion.ExecuteScalarAsync<bool>(sql, new { login.NombreUsuario, login.Contraseña });
+                string sql = "SELECT 1 FROM usuario WHERE Nombre = @Nombre AND Clave = @Clave;";
+                valido = await conexion.ExecuteScalarAsync<bool>(sql, new { login.Nombre, login.Clave });
             }
             catch (Exception ex)
             {

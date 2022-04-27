@@ -6,7 +6,7 @@
 <h3>Registro de Pacientes</h3>
 
 <EditForm Model="@pac">
-
+    <DataAnnotationsValidator />
 <div class="input-group mb-3">
   <span class="input-group-text" id="basic-addon1">Nombre</span>
   <input type="text" id="Nombre" @bind-value="pac.Nombre" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1">

@@ -1,10 +1,30 @@
 ﻿@page "/"
 
-<PageTitle>CONSULTORIO MEDICO</PageTitle>
+<AuthorizeView Roles="Administrador">
+    <Authorized Context="AuthenticationState">
+        <h1>Bienvenido Administrador</h1>
+   </Authorized>
+</AuthorizeView>
 
-<h1>SU SALUD ES NUESTRA PRIORIDAD</h1>
+<AuthorizeView Roles="Usuario">
+    <Authorized Context="AuthenticationState">
+        <h1>Bienvenido Usuario</h1>
+    </Authorized>
+</AuthorizeView>
 
-SISTEMA DE REGISTRO PACIENTE - DOCTOR
+<AuthorizeView>
+    <NotAuthorized>
+        <PageTitle>CONSULTORIO MEDICO</PageTitle>
 
-<SurveyPrompt Title="CONSULTORIO MEDICO" />
+          <h1>SU SALUD ES NUESTRA PRIORIDAD</h1>
+
+         SISTEMA DE REGISTRO PACIENTE - DOCTOR
+
+        <h3>"CONSULTORIO MEDICO" </h3>
+
+    </NotAuthorized> 
+</AuthorizeView>
+
+
+
 
